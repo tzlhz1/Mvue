@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h2>{{person.name}}--{{person.id}} {{</h2>
+            <h2>{{person.name}}</h2>
+            <h3>{{person.age}}</h3>
+            <span v-text='msg'></span>
+            <span v-text='person.name'></span>
+            <button v-on:click="handlerClick"></button>
+        </div>
+        <input type="text" v-model='msg'>
+        <div type="text" v-html='width'></div>
+    </div>
+   
+
+    <script src="./vue.js"></script>
+    <script src="../src/observer.js"></script>
+    <script src="../src/index.js"></script>
+    <script >
+        let vm = new MVue({
+            el:'#app',
+            data:{
+                person:{
+                    name:'tzl',
+                    age:18,
+                    id:1
+                },
+                width:'<h1>111</h1>',
+                msg:'mvvm原理'
+            },
+            methods:{
+                handlerClick(){
+                    this.$data.person.name = '张三'
+                    console.log(this)
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>
